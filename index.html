@@ -3,114 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story 💚</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Together Since 21.9.2025 💚</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-green: #18a63d; --heart-pink: #ff4f92; --glass-bg: rgba(255, 255, 255, 0.85); }
+        :root { --accent: #18a63d; --soft-pink: #ff85a1; --white: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            width: 100%; height: 100vh; overflow: hidden; font-family: 'Poppins', sans-serif;
-            display: flex; justify-content: center; align-items: center;
-            background: linear-gradient(-45deg, #ffe6f0, #e9ffe9, #fff8dd, #eef9ff);
-            background-size: 400% 400%; animation: bgFlow 15s ease infinite; position: relative;
-        }
-        @keyframes bgFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .container {
-            position: relative; z-index: 2; width: 92%; max-width: 400px;
-            background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 35px;
-            padding: 25px 20px; box-shadow: 0 25px 60px rgba(0,0,0,0.1); text-align: center;
-        }
-        h1 { font-family: 'Great Vibes', cursive; font-size: 48px; color: var(--primary-green); margin-bottom: 5px; }
-        .days-count { font-weight: 500; font-size: 14px; color: #666; margin-bottom: 15px; text-transform: uppercase; }
-        .slider {
-            position: relative; width: 100%; height: 380px; border-radius: 25px;
-            overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.12); margin-bottom: 20px;
-        }
-        .slider img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out; }
-        .slider img.active { opacity: 1; }
-        .message-box { font-size: 17px; line-height: 1.8; color: #333; min-height: 150px; margin-bottom: 10px; }
-        .signature { font-family: 'Great Vibes', cursive; font-size: 30px; color: var(--heart-pink); margin-bottom: 15px; }
-        .btn { border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; background: var(--primary-green); color: white; margin: 5px; transition: 0.3s; }
-        .btn-next { background: white; color: #333; border: 1px solid #eee; }
-        .fall { position: absolute; top: -50px; pointer-events: none; z-index: 1; animation: fallAnimation linear forwards; }
-        @keyframes fallAnimation { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+        body { height: 100vh; display: flex; justify-content: center; align-items: center; background: #000; font-family: 'Montserrat', sans-serif; overflow: hidden; position: relative; }
+        #bg-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%); z-index: 0; }
+        .main-card { position: relative; z-index: 10; width: 90%; max-width: 420px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 40px; padding: 30px 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); text-align: center; color: #333; }
+        .heart-beat { font-size: 40px; color: var(--accent); animation: beat 1.2s infinite; margin-bottom: 10px; }
+        @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        h1 { font-family: 'Great Vibes', cursive; font-size: 45px; color: var(--accent); margin-bottom: 5px; }
+        .counter-box { background: rgba(255, 255, 255, 0.5); display: inline-block; padding: 5px 20px; border-radius: 50px; font-weight: 700; font-size: 14px; margin-bottom: 20px; color: #444; }
+        .photo-frame { width: 100%; height: 380px; border-radius: 30px; overflow: hidden; border: 5px solid white; box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: none; animation: zoomEffect 6s infinite alternate; }
+        .photo-frame img.active { display: block; }
+        @keyframes zoomEffect { from { transform: scale(1); } to { transform: scale(1.1); } }
+        .text-area { font-size: 15px; line-height: 1.8; min-height: 180px; margin-bottom: 20px; font-weight: 500; text-align: center; white-space: pre-line; }
+        .footer-btns { display: flex; justify-content: center; gap: 15px; }
+        .action-btn { background: var(--white); border: none; padding: 12px 25px; border-radius: 30px; font-weight: 700; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 8px; color: #333; }
+        .action-btn.primary { background: var(--accent); color: white; }
+        .action-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .particle { position: absolute; pointer-events: none; animation: fly linear forwards; }
+        @keyframes fly { to { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 id="title-text">Happy Anniversary 💚</h1>
-        <div class="days-count" id="days-display">Together Forever ✨</div>
-        <div class="slider">
+
+    <div id="bg-canvas"></div>
+
+    <div class="main-card">
+        <div class="heart-beat">💚</div>
+        <h1 id="days-title">Happy Days</h1>
+        <div class="counter-box">SINCE SEPTEMBER 21, 2025</div>
+
+        <div class="photo-frame">
             <img src="photo1.jpg" class="active">
             <img src="photo2.jpg">
             <img src="photo3.jpg">
             <img src="photo4.jpg">
+            <img src="photo5.jpg">
+            <img src="photo6.jpg">
+            <img src="photo7.jpg">
+            <img src="photo8.jpg">
         </div>
-        <div class="message-box" id="typing-text"></div>
-        <div class="signature">With Love 💚</div>
-        <div class="controls">
-            <button class="btn" onclick="toggleMusic()">🎵 Play Music</button>
-            <button class="btn btn-next" onclick="nextSlide()">Next ➜</button>
+
+        <div class="text-area" id="love-text"></div>
+
+        <div class="footer-btns">
+            <button class="action-btn primary" onclick="handleMusic()">
+                <span id="m-icon">🎵</span> Music
+            </button>
+            <button class="action-btn" onclick="nextPhoto()">Next ➜</button>
         </div>
     </div>
-    <audio id="bg-music" loop><source src="song.mp3" type="audio/mpeg"></audio>
+
+    <audio id="main-song" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
-        // ၁။ ရက်စွဲတွက်ချက်ခြင်း
-        const startDay = new Date("2025-09-21"); 
-        function updateCounter() {
-            const now = new Date();
-            const diffDays = Math.floor((now - startDay) / (1000 * 60 * 60 * 24));
-            document.getElementById("title-text").innerText = `Happy ${diffDays} Days 💚`;
-        }
-        updateCounter();
+        const startDate = new Date("2025-09-21");
+        const titleEl = document.getElementById("days-title");
 
-        // ၂။ စာသားပေါ်အောင်လုပ်ခြင်း (Typewriter fix)
-        const message = `၂၀၂၅ စက်တင်ဘာလ ၂၁ ရက်နေ့ကစပြီး\nကိုကိုတို့ အခုဆိုရင် ရက်ပေါင်းများစွာ တူတူရှိခဲ့ကြပြီနော် အချစ်ရေ 💚\n\nအမှတ်တရတိုင်းအတွက် ကျေးဇူးတင်ပါတယ်။\nနောက်ထပ် နှစ်ပေါင်းများစွာအထိ\nလက်တွဲမဖြုတ်တမ်း တူတူရှေ့ဆက်ကြမယ်နော်။\n\nအရမ်းချစ်တယ် ကိုကို့သဲသဲလေး 😘💚`;
+        function refreshDays() {
+            const now = new Date();
+            const diff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+            titleEl.innerText = `${diff} Days of Love`;
+        }
+        refreshDays();
+
+        // ထည့်သွင်းပေးထားတဲ့ Romantic စာသားသစ်
+        const content = `၂၀၂၅ စက်တင်ဘာ ၂၁ ကနေ ဒီနေ့အထိ...\nကိုကိုတို့ တူတူလျှောက်လှမ်းခဲ့တာ ရက်ပေါင်းမနည်းတော့ဘူးနော်။ 💚\n\nသဲသဲနဲ့အတူရှိရတဲ့ အချိန်တိုင်းက ကိုကို့အတွက်တော့ တန်ဖိုးမဖြတ်နိုင်တဲ့ အမှတ်တရတွေချည်းပါပဲ။\n\nတစ်နေ့ကျရင်... ကိုကိုတို့နှစ်ယောက် သေချာပေါက် လက်ထပ်ကြမယ်နော်။\nပြီးတော့ အေးချမ်းပြီး နွေးထွေးတဲ့ မိသားစုဘဝလေးတစ်ခုကို အတူတူ တည်ဆောက်သွားချင်တာ ကိုကို့ရဲ့ အကြီးမားဆုံး ဆန္ဒပါ။\n\nကိုကို့ရဲ့နောက်ဆုံးထွက်သက်အထိ သဲသဲရဲ့လက်ကို အမြဲဆုပ်ကိုင်ထားပါရစေ။\n\nအရမ်းချစ်တယ် ကိုကို့သဲသဲလေး💚 အာဘွား😘💚`;
         
-        let i = 0;
-        const target = document.getElementById("typing-text");
-        function typeWriter() {
-            if (i < message.length) {
-                const char = message.charAt(i);
-                target.innerHTML += char === "\n" ? "<br>" : char;
-                i++;
-                setTimeout(typeWriter, 50);
+        let idx = 0;
+        const textEl = document.getElementById("love-text");
+
+        function write() {
+            if (idx < content.length) {
+                const char = content.charAt(idx);
+                textEl.innerHTML += char === "\n" ? "<br>" : char;
+                idx++;
+                setTimeout(write, 50);
             }
         }
-        // စာရိုက်တဲ့ animation စတင်ရန်
-        setTimeout(typeWriter, 500);
+        setTimeout(write, 1000);
 
-        // ၃။ Slideshow
-        let currentSlide = 0;
-        const slides = document.querySelectorAll(".slider img");
-        function nextSlide() {
-            slides[currentSlide].classList.remove("active");
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add("active");
+        let current = 0;
+        const images = document.querySelectorAll(".photo-frame img");
+        function nextPhoto() {
+            images[current].classList.remove("active");
+            current = (current + 1) % images.length;
+            images[current].classList.add("active");
         }
-        setInterval(nextSlide, 4000);
+        setInterval(nextPhoto, 4000);
 
-        // ၄။ Music
-        const music = document.getElementById("bg-music");
-        function toggleMusic() {
-            music.paused ? music.play() : music.pause();
+        const song = document.getElementById("main-song");
+        const mIcon = document.getElementById("m-icon");
+        function handleMusic() {
+            if (song.paused) { song.play(); mIcon.innerText = "⏸️"; }
+            else { song.pause(); mIcon.innerText = "🎵"; }
         }
 
-        // ၅။ Falling Emoji
-        const emojis = ["💚", "🌸", "✨", "💓", "🌼"];
-        function createFall() {
-            const el = document.createElement("div");
-            el.className = "fall";
-            el.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-            el.style.left = Math.random() * 100 + "vw";
-            el.style.fontSize = (Math.random() * 20 + 15) + "px";
-            el.style.animationDuration = (Math.random() * 3 + 4) + "s";
-            document.body.appendChild(el);
-            setTimeout(() => el.remove(), 7000);
+        function spawn() {
+            const p = document.createElement("div");
+            p.className = "particle";
+            const items = ["💚", "🤍", "🌸", "✨"];
+            p.innerText = items[Math.floor(Math.random() * items.length)];
+            p.style.left = Math.random() * 100 + "vw";
+            p.style.top = "105vh";
+            p.style.fontSize = Math.random() * 20 + 10 + "px";
+            p.style.animationDuration = Math.random() * 4 + 4 + "s";
+            document.body.appendChild(p);
+            setTimeout(() => p.remove(), 8000);
         }
-        setInterval(createFall, 400);
+        setInterval(spawn, 350);
     </script>
 </body>
 </html>
