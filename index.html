@@ -4,268 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Love Story 💚</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
     <style>
-        :root {
-            --primary-green: #18a63d;
-            --heart-pink: #ff4f92;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-        }
-
+        :root { --primary-green: #18a63d; --heart-pink: #ff4f92; --glass-bg: rgba(255, 255, 255, 0.85); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 100%; height: 100vh; overflow: hidden; font-family: 'Poppins', sans-serif;
+            display: flex; justify-content: center; align-items: center;
             background: linear-gradient(-45deg, #ffe6f0, #e9ffe9, #fff8dd, #eef9ff);
-            background-size: 400% 400%;
-            animation: bgFlow 15s ease infinite;
-            position: relative;
+            background-size: 400% 400%; animation: bgFlow 15s ease infinite; position: relative;
         }
-
-        @keyframes bgFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Dreamy Background Elements */
-        .glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            z-index: 0;
-            animation: floatGlow 8s ease-in-out infinite alternate;
-        }
-        .glow-1 { background: #ff9bcf; top: -50px; left: -50px; }
-        .glow-2 { background: #9cffc1; bottom: -50px; right: -50px; animation-delay: 2s; }
-
-        @keyframes floatGlow {
-            from { transform: translate(0, 0) scale(1); }
-            to { transform: translate(30px, 30px) scale(1.1); }
-        }
-
+        @keyframes bgFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .container {
-            position: relative;
-            z-index: 2;
-            width: 92%;
-            max-width: 400px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 35px;
-            padding: 25px 20px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.1);
-            text-align: center;
-            animation: cardEntrance 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+            position: relative; z-index: 2; width: 92%; max-width: 400px;
+            background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 35px;
+            padding: 25px 20px; box-shadow: 0 25px 60px rgba(0,0,0,0.1); text-align: center;
         }
-
-        @keyframes cardEntrance {
-            from { opacity: 0; transform: scale(0.9) translateY(30px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(40px, 10vw, 52px);
-            color: var(--primary-green);
-            margin-bottom: 5px;
-        }
-
-        .days-count {
-            font-weight: 500;
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
+        h1 { font-family: 'Great Vibes', cursive; font-size: 48px; color: var(--primary-green); margin-bottom: 5px; }
+        .days-count { font-weight: 500; font-size: 14px; color: #666; margin-bottom: 15px; text-transform: uppercase; }
         .slider {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            margin-bottom: 20px;
-            background: #f0f0f0;
+            position: relative; width: 100%; height: 380px; border-radius: 25px;
+            overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.12); margin-bottom: 20px;
         }
-
-        .slider img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out, transform 6s ease;
-        }
-
-        .slider img.active {
-            opacity: 1;
-            transform: scale(1.08);
-        }
-
-        .message-box {
-            font-size: 17px;
-            line-height: 1.8;
-            color: #333;
-            min-height: 150px;
-            margin-bottom: 10px;
-            white-space: pre-line;
-        }
-
-        .signature {
-            font-family: 'Great Vibes', cursive;
-            font-size: 30px;
-            color: var(--heart-pink);
-            margin-bottom: 15px;
-        }
-
-        .controls {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .btn {
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-family: inherit;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        .btn-play { background: var(--primary-green); color: white; }
+        .slider img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .slider img.active { opacity: 1; }
+        .message-box { font-size: 17px; line-height: 1.8; color: #333; min-height: 150px; margin-bottom: 10px; }
+        .signature { font-family: 'Great Vibes', cursive; font-size: 30px; color: var(--heart-pink); margin-bottom: 15px; }
+        .btn { border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; background: var(--primary-green); color: white; margin: 5px; transition: 0.3s; }
         .btn-next { background: white; color: #333; border: 1px solid #eee; }
-        .btn:hover { transform: translateY(-2px); }
-        .btn:active { transform: scale(0.95); }
-
-        /* Falling Emoji */
-        .fall {
-            position: absolute;
-            top: -50px;
-            pointer-events: none;
-            z-index: 1;
-            animation: fallAnimation linear forwards;
-        }
-
-        @keyframes fallAnimation {
-            to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-        }
-
-        @media (max-height: 700px) {
-            .slider { height: 320px; }
-            .container { padding: 15px; }
-            h1 { font-size: 38px; }
-        }
+        .fall { position: absolute; top: -50px; pointer-events: none; z-index: 1; animation: fallAnimation linear forwards; }
+        @keyframes fallAnimation { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
-
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
-
     <div class="container">
         <h1 id="title-text">Happy Anniversary 💚</h1>
         <div class="days-count" id="days-display">Together Forever ✨</div>
-
         <div class="slider">
             <img src="photo1.jpg" class="active">
             <img src="photo2.jpg">
             <img src="photo3.jpg">
             <img src="photo4.jpg">
-            <img src="photo5.jpg">
-            <img src="photo6.jpg">
-            <img src="photo7.jpg">
-            <img src="photo8.jpg">
         </div>
-
         <div class="message-box" id="typing-text"></div>
         <div class="signature">With Love 💚</div>
-
         <div class="controls">
-            <button class="btn btn-play" onclick="toggleMusic()">
-                <span id="music-icon">🎵</span> Play Music
-            </button>
-            <button class="btn btn-next" onclick="nextSlide()">Next Photo ➜</button>
+            <button class="btn" onclick="toggleMusic()">🎵 Play Music</button>
+            <button class="btn btn-next" onclick="nextSlide()">Next ➜</button>
         </div>
     </div>
-
-    <audio id="bg-music" loop>
-        <source src="song.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bg-music" loop><source src="song.mp3" type="audio/mpeg"></audio>
 
     <script>
-        // ၁။ စတွဲတဲ့ရက်စွဲ သတ်မှတ်ခြင်း (21 September 2025)
+        // ၁။ ရက်စွဲတွက်ချက်ခြင်း
         const startDay = new Date("2025-09-21"); 
-        
         function updateCounter() {
             const now = new Date();
-            const diffTime = Math.abs(now - startDay);
-            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const diffDays = Math.floor((now - startDay) / (1000 * 60 * 60 * 24));
             document.getElementById("title-text").innerText = `Happy ${diffDays} Days 💚`;
         }
         updateCounter();
 
-        // ၂။ စာရိုက်တဲ့ Effect
+        // ၂။ စာသားပေါ်အောင်လုပ်ခြင်း (Typewriter fix)
         const message = `၂၀၂၅ စက်တင်ဘာလ ၂၁ ရက်နေ့ကစပြီး\nကိုကိုတို့ အခုဆိုရင် ရက်ပေါင်းများစွာ တူတူရှိခဲ့ကြပြီနော် အချစ်ရေ 💚\n\nအမှတ်တရတိုင်းအတွက် ကျေးဇူးတင်ပါတယ်။\nနောက်ထပ် နှစ်ပေါင်းများစွာအထိ\nလက်တွဲမဖြုတ်တမ်း တူတူရှေ့ဆက်ကြမယ်နော်။\n\nအရမ်းချစ်တယ် ကိုကို့သဲသဲလေး 😘💚`;
         
         let i = 0;
+        const target = document.getElementById("typing-text");
         function typeWriter() {
             if (i < message.length) {
                 const char = message.charAt(i);
-                document.getElementById("typing-text").innerHTML += char === "\n" ? "<br>" : char;
+                target.innerHTML += char === "\n" ? "<br>" : char;
                 i++;
-                setTimeout(typeWriter, 55);
+                setTimeout(typeWriter, 50);
             }
         }
-        window.onload = typeWriter;
+        // စာရိုက်တဲ့ animation စတင်ရန်
+        setTimeout(typeWriter, 500);
 
-        // ၃။ Slideshow Logic
+        // ၃။ Slideshow
         let currentSlide = 0;
         const slides = document.querySelectorAll(".slider img");
-
         function nextSlide() {
             slides[currentSlide].classList.remove("active");
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add("active");
         }
-        setInterval(nextSlide, 4500); // ၄.၅ စက္ကန့်တစ်ခါ ပုံပြောင်းမည်
+        setInterval(nextSlide, 4000);
 
-        // ၄။ Music Logic
+        // ၄။ Music
         const music = document.getElementById("bg-music");
         function toggleMusic() {
-            if (music.paused) {
-                music.play().catch(e => console.log("Music play blocked"));
-                document.getElementById("music-icon").innerText = "⏸️";
-            } else {
-                music.pause();
-                document.getElementById("music-icon").innerText = "🎵";
-            }
+            music.paused ? music.play() : music.pause();
         }
 
-        // ၅။ Falling Elements (Flowers & Hearts)
-        const emojis = ["💚", "🌸", "✨", "💓", "🌼", "💕", "🤍"];
+        // ၅။ Falling Emoji
+        const emojis = ["💚", "🌸", "✨", "💓", "🌼"];
         function createFall() {
             const el = document.createElement("div");
             el.className = "fall";
@@ -276,12 +110,7 @@
             document.body.appendChild(el);
             setTimeout(() => el.remove(), 7000);
         }
-        setInterval(createFall, 350);
-
-        // Mobile Interaction Fix
-        document.body.addEventListener('click', function() {
-            // Browser policy အရ user က interaction တစ်ခုခုလုပ်မှ music play လို့ရတာမို့လို့ပါ
-        }, {once: true});
+        setInterval(createFall, 400);
     </script>
 </body>
 </html>
