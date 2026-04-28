@@ -1,39 +1,205 @@
 <!DOCTYPE html>
-<html lang="my">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 222 Days Anniversary 💚</title>
+<title>Happy 222 Days 💚</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:linear-gradient(135deg,#dfffe2,#ffffff);display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
-.container{max-width:430px;width:100%;background:#fff;padding:20px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.15);text-align:center}
-h1{color:#00a63e;margin-bottom:15px}
-img{width:100%;height:420px;object-fit:cover;border-radius:15px}
-.message{white-space:pre-line;line-height:1.8;margin:18px 0;color:#333}
-audio{width:100%}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#eaffea,#f8fff8);
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:15px;
+position:relative;
+}
+
+.container{
+width:100%;
+max-width:420px;
+background:white;
+padding:20px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+text-align:center;
+position:relative;
+z-index:2;
+animation:fadeIn 1.5s ease;
+}
+
+h1{
+color:#1faa42;
+font-size:36px;
+margin-bottom:15px;
+animation:pop 1.3s infinite alternate;
+}
+
+.slider{
+width:100%;
+height:520px;
+border-radius:20px;
+overflow:hidden;
+position:relative;
+margin-bottom:18px;
+}
+
+.slider img{
+width:100%;
+height:100%;
+object-fit:cover;
+position:absolute;
+top:0;
+left:0;
+opacity:0;
+transition:1s;
+}
+
+.slider img.active{
+opacity:1;
+}
+
+.message{
+font-size:23px;
+line-height:1.7;
+color:#333;
+min-height:200px;
+white-space:pre-line;
+}
+
+.btn{
+margin-top:18px;
+padding:12px 28px;
+border:none;
+background:#1faa42;
+color:white;
+font-size:18px;
+border-radius:30px;
+cursor:pointer;
+}
+
+.fall{
+position:absolute;
+top:-50px;
+animation:drop linear forwards;
+pointer-events:none;
+z-index:1;
+}
+
+@keyframes drop{
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:scale(.8);}
+to{opacity:1;transform:scale(1);}
+}
+
+@keyframes pop{
+from{transform:scale(1);}
+to{transform:scale(1.05);}
+}
 </style>
 </head>
 <body>
+
 <div class="container">
 <h1>Happy 222 Days 💚</h1>
-<img id="slide" src="photo1.jpg">
-<div class="message">222 ရက်တောင်အတူရှိခဲ့ကြပြီနော် အချစ်ရေ 💚
 
-အမှတ်တရတိုင်းအတွက် ကျေးဇူးတင်ပါတယ် အများကြီးလည်းပျော်ရွှင်ရပါတယ်။
+<div class="slider">
+<img src="photo1.jpg" class="active">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
+<img src="photo7.jpg">
+<img src="photo8.jpg">
+</div>
 
-နောက်ထပ်ရက်၊ လ၊ နှစ်ပေါင်းများစွာ တစ်သက်လုံး ပျော်ပျော်ရွှင်ရွှင်နဲ့ အတူတူ လက်တွဲသွားချင်ပါတယ်။
-တစ်နေ့ကျရင် ကိုကိုနဲ့သဲသဲ သေချာပေါက်လက်ထပ်ကြမယ်နော်။
+<div class="message" id="text"></div>
 
-အရမ်းချစ်တယ် ကိုကို့သဲသဲလေး အာဘွား😘 💚</div>
-<audio controls autoplay loop>
+<button class="btn" onclick="music.play()">Play Music 🎵</button>
+
+<audio id="music" autoplay loop>
 <source src="song.mp3" type="audio/mpeg">
 </audio>
 </div>
+
 <script>
-const photos=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg","photo8.jpg"];
+const text = `222 ရက်တောင်အတူရှိခဲ့ကြပြီနော် အချစ်ရေ 💚
+
+အမှတ်တရတိုင်းအတွက် ကျေးဇူးတင်ပါတယ်။
+အများကြီးလည်းပျော်ရွှင်ရပါတယ်။
+
+နောက်ထပ်ရက်၊ လ၊ နှစ်ပေါင်းများစွာ
+တစ်သက်လုံး ပျော်ပျော်ရွှင်ရွှင်နဲ့
+အတူတူ လက်တွဲသွားချင်ပါတယ်။
+
+တစ်နေ့ကျရင် သေချာပေါက် လက်ထပ်ကြမယ်နော် အချစ်ကလေး။
+
+အရမ်းချစ်တယ် ကိုကို့သဲသဲလေး အာဘွားးးးးး😘💚`;
+
 let i=0;
-setInterval(()=>{i=(i+1)%photos.length;document.getElementById('slide').src=photos[i];},2500);
+function typeWriter(){
+if(i<text.length){
+document.getElementById("text").innerHTML += text.charAt(i);
+i++;
+setTimeout(typeWriter,55);
+}
+}
+typeWriter();
+
+const imgs=document.querySelectorAll(".slider img");
+let current=0;
+
+setInterval(()=>{
+imgs[current].classList.remove("active");
+current=(current+1)%imgs.length;
+imgs[current].classList.add("active");
+},2500);
+
+const items=["🌸","🌼","🏵️","🪷","🌺","🌻","💚","🤍","💓","💗"];
+
+function createFall(){
+const el=document.createElement("div");
+el.className="fall";
+el.innerHTML=items[Math.floor(Math.random()*items.length)];
+el.style.left=Math.random()*100+"vw";
+el.style.fontSize=(18+Math.random()*22)+"px";
+el.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(el);
+
+setTimeout(()=>{
+el.remove();
+},8000);
+}
+
+setInterval(createFall,250);
+
+window.addEventListener("click",()=>{
+music.play();
+});
 </script>
-</body></html>
- 
+
+</body>
+</html>
