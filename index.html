@@ -1,131 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="my">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy 222 Days 💚</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:sans-serif;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#eaffea,#f8fff8);
-overflow:hidden;
-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:15px;
+padding:14px;
+background:linear-gradient(-45deg,#ffe6f0,#e9ffe9,#fff8dd,#eef9ff,#ffeef7);
+background-size:500% 500%;
+animation:bgFlow 14s ease infinite;
 position:relative;
+}
+
+@keyframes bgFlow{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* dreamy blur lights */
+body::before,
+body::after{
+content:"";
+position:absolute;
+width:280px;
+height:280px;
+border-radius:50%;
+filter:blur(60px);
+opacity:.35;
+z-index:0;
+animation:floatGlow 10s ease-in-out infinite;
+}
+body::before{
+background:#ff9bcf;
+top:-80px;
+left:-80px;
+}
+body::after{
+background:#9cffc1;
+bottom:-80px;
+right:-80px;
+animation-delay:3s;
+}
+
+@keyframes floatGlow{
+0%,100%{transform:translate(0,0) scale(1);}
+50%{transform:translate(20px,20px) scale(1.12);}
 }
 
 .container{
-width:100%;
-max-width:420px;
-background:white;
-padding:20px;
-border-radius:25px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-text-align:center;
 position:relative;
 z-index:2;
-animation:fadeIn 1.5s ease;
+width:100%;
+max-width:430px;
+background:rgba(255,255,255,.78);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.45);
+border-radius:30px;
+padding:18px;
+box-shadow:0 25px 50px rgba(0,0,0,.16);
+text-align:center;
+animation:cardUp 1.4s ease;
+}
+
+@keyframes cardUp{
+from{opacity:0;transform:translateY(40px) scale(.96);}
+to{opacity:1;transform:translateY(0) scale(1);}
 }
 
 h1{
-color:#1faa42;
-font-size:36px;
-margin-bottom:15px;
-animation:pop 1.3s infinite alternate;
+font-family:'Great Vibes',cursive;
+font-size:56px;
+line-height:1.1;
+color:#18a63d;
+margin-bottom:12px;
+text-shadow:0 4px 12px rgba(0,0,0,.08);
+animation:titlePulse 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes titlePulse{
+from{transform:scale(1);}
+to{transform:scale(1.03);}
+}
+
+.days{
+font-size:15px;
+color:#666;
+margin-bottom:14px;
 }
 
 .slider{
-width:100%;
-height:520px;
-border-radius:20px;
-overflow:hidden;
 position:relative;
-margin-bottom:18px;
+width:100%;
+height:510px;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 15px 30px rgba(0,0,0,.14);
+margin-bottom:16px;
 }
 
 .slider img{
+position:absolute;
+inset:0;
 width:100%;
 height:100%;
 object-fit:cover;
-position:absolute;
-top:0;
-left:0;
 opacity:0;
-transition:1s;
+transform:scale(1.08);
+transition:
+opacity 1.8s ease,
+transform 6s ease;
 }
 
 .slider img.active{
 opacity:1;
+transform:scale(1);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.18),transparent 45%);
+pointer-events:none;
 }
 
 .message{
-font-size:23px;
-line-height:1.7;
+font-size:20px;
+line-height:1.85;
 color:#333;
-min-height:200px;
+min-height:215px;
+padding:8px 6px;
 white-space:pre-line;
 }
 
-.btn{
-margin-top:18px;
-padding:12px 28px;
-border:none;
-background:#1faa42;
-color:white;
-font-size:18px;
-border-radius:30px;
-cursor:pointer;
+.signature{
+margin-top:8px;
+font-family:'Great Vibes',cursive;
+font-size:32px;
+color:#ff4f92;
 }
 
+.controls{
+margin-top:10px;
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.btn{
+border:none;
+padding:12px 22px;
+border-radius:999px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.25s;
+box-shadow:0 10px 18px rgba(0,0,0,.12);
+}
+
+.play{
+background:linear-gradient(45deg,#1faa42,#73eb93);
+color:#fff;
+}
+
+.next{
+background:#fff;
+color:#333;
+}
+
+.btn:hover{
+transform:translateY(-2px) scale(1.03);
+}
+
+/* falling emoji */
 .fall{
 position:absolute;
-top:-50px;
-animation:drop linear forwards;
+top:-60px;
 pointer-events:none;
 z-index:1;
+animation:drop linear forwards;
+filter:drop-shadow(0 4px 8px rgba(0,0,0,.08));
 }
 
 @keyframes drop{
 0%{
-transform:translateY(-50px) rotate(0deg);
+transform:translateY(-60px) rotate(0deg) scale(.8);
 opacity:0;
 }
-10%{
-opacity:1;
-}
+10%{opacity:1;}
 100%{
-transform:translateY(110vh) rotate(360deg);
+transform:translateY(115vh) rotate(360deg) scale(1.15);
 opacity:0;
 }
 }
 
-@keyframes fadeIn{
-from{opacity:0;transform:scale(.8);}
-to{opacity:1;transform:scale(1);}
+/* tiny hearts pulse */
+.spark{
+position:absolute;
+font-size:12px;
+opacity:.65;
+animation:sparkle 2s ease infinite;
 }
 
-@keyframes pop{
-from{transform:scale(1);}
-to{transform:scale(1.05);}
+@keyframes sparkle{
+0%,100%{transform:scale(.8);opacity:.3;}
+50%{transform:scale(1.4);opacity:1;}
+}
+
+@media(max-width:420px){
+h1{font-size:48px;}
+.slider{height:470px;}
+.message{font-size:18px;}
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-<h1>Happy 222 Days 💚</h1>
 
-<div class="slider">
+<div class="spark" style="top:16px;left:22px;">💚</div>
+<div class="spark" style="top:26px;right:24px;animation-delay:.8s;">💗</div>
+
+<h1>Happy 222 Days 💚</h1>
+<div class="days">Together, smiling, loving, forever ✨</div>
+
+<div class="slider" id="slider">
 <img src="photo1.jpg" class="active">
 <img src="photo2.jpg">
 <img src="photo3.jpg">
@@ -134,71 +254,94 @@ to{transform:scale(1.05);}
 <img src="photo6.jpg">
 <img src="photo7.jpg">
 <img src="photo8.jpg">
+<div class="overlay"></div>
 </div>
 
 <div class="message" id="text"></div>
+<div class="signature">With Love 💚</div>
 
-<button class="btn" onclick="music.play()">Play Music 🎵</button>
+<div class="controls">
+<button class="btn play" onclick="playMusic()">Play Music 🎵</button>
+<button class="btn next" onclick="nextSlide()">Next Photo ➜</button>
+</div>
 
-<audio id="music" autoplay loop>
+<audio id="music" loop preload="auto">
 <source src="song.mp3" type="audio/mpeg">
 </audio>
+
 </div>
 
 <script>
-const text = `222 ရက်တောင်အတူရှိခဲ့ကြပြီနော် အချစ်ရေ 💚
+/* romantic type text */
+const text = `222 ရက်တောင် အတူရှိခဲ့ကြပြီနော် အချစ်ရေ 💚
 
 အမှတ်တရတိုင်းအတွက် ကျေးဇူးတင်ပါတယ်။
-အများကြီးလည်းပျော်ရွှင်ရပါတယ်။
+အများကြီးလည်း ပျော်ရွှင်ရပါတယ်။
 
 နောက်ထပ်ရက်၊ လ၊ နှစ်ပေါင်းများစွာ
 တစ်သက်လုံး ပျော်ပျော်ရွှင်ရွှင်နဲ့
 အတူတူ လက်တွဲသွားချင်ပါတယ်။
 
-တစ်နေ့ကျရင် သေချာပေါက် လက်ထပ်ကြမယ်နော် အချစ်ကလေး။
+တစ်နေ့ကျရင် ကိုကိုတို့ သေချာပေါက်လက်ထပ်ကြမယ်နော်။
 
-အရမ်းချစ်တယ် ကိုကို့သဲသဲလေး အာဘွားးးးးး😘💚`;
+အရမ်းချစ်တယ် ကိုကို့သဲသဲလေး 😘💚`;
 
-let i=0;
+let ti=0;
 function typeWriter(){
-if(i<text.length){
-document.getElementById("text").innerHTML += text.charAt(i);
-i++;
-setTimeout(typeWriter,55);
+if(ti < text.length){
+document.getElementById("text").innerHTML += text.charAt(ti);
+ti++;
+setTimeout(typeWriter,42);
 }
 }
 typeWriter();
 
-const imgs=document.querySelectorAll(".slider img");
-let current=0;
+/* smooth slideshow */
+const slides = document.querySelectorAll(".slider img");
+let current = 0;
 
-setInterval(()=>{
-imgs[current].classList.remove("active");
-current=(current+1)%imgs.length;
-imgs[current].classList.add("active");
-},2500);
-
-const items=["🌸","🌼","🏵️","🪷","🌺","🌻","💚","🤍","💓","💗"];
-
-function createFall(){
-const el=document.createElement("div");
-el.className="fall";
-el.innerHTML=items[Math.floor(Math.random()*items.length)];
-el.style.left=Math.random()*100+"vw";
-el.style.fontSize=(18+Math.random()*22)+"px";
-el.style.animationDuration=(4+Math.random()*4)+"s";
-document.body.appendChild(el);
-
-setTimeout(()=>{
-el.remove();
-},8000);
+function showSlide(i){
+slides.forEach(s=>s.classList.remove("active"));
+slides[i].classList.add("active");
 }
 
-setInterval(createFall,250);
+function nextSlide(){
+current = (current + 1) % slides.length;
+showSlide(current);
+}
 
-window.addEventListener("click",()=>{
-music.play();
-});
+setInterval(nextSlide, 3400);
+
+/* falling flowers & hearts */
+const emojis = ["🌸","🌼","🏵️","🪷","🌺","🌻","💚","🤍","💓","💗","💕","💞","💘"];
+
+function createFall(){
+const el = document.createElement("div");
+el.className = "fall";
+el.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+el.style.left = Math.random()*100 + "vw";
+el.style.fontSize = (16 + Math.random()*22) + "px";
+el.style.animationDuration = (5 + Math.random()*5) + "s";
+document.body.appendChild(el);
+setTimeout(()=>el.remove(),10000);
+}
+setInterval(createFall,180);
+
+/* music fix */
+const music = document.getElementById("music");
+
+function playMusic(){
+music.play().catch(()=>{});
+}
+
+document.body.addEventListener("click",()=>{
+music.play().catch(()=>{});
+},{once:true});
+
+/* keep music alive on mobile */
+setInterval(()=>{
+if(!music.paused && music.currentTime > 0){}
+},3000);
 </script>
 
 </body>
