@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 222 Days 💚</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:linear-gradient(135deg,#dfffe2,#ffffff);display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
+.container{max-width:430px;width:100%;background:#fff;padding:20px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.15);text-align:center}
+h1{color:#00a63e;margin-bottom:15px}
+img{width:100%;height:420px;object-fit:cover;border-radius:15px}
+.message{white-space:pre-line;line-height:1.8;margin:18px 0;color:#333}
+audio{width:100%}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Happy 222 Days 💚</h1>
+<img id="slide" src="photo1.jpg">
+<div class="message">222 ရက်တောင်အတူရှိခဲ့ကြပြီနော် အချစ်ရေ 💚
+
+အမှတ်တရတိုင်းအတွက် ကျေးဇူးတင်ပါတယ် အများကြီးလည်းပျော်ရွှင်ရပါတယ်။
+
+နောက်ထပ်ရက်၊ လ၊ နှစ်ပေါင်းများစွာ တစ်သက်လုံး ပျော်ပျော်ရွှင်ရွှင်နဲ့ အတူတူ လက်တွဲသွားချင်ပါတယ်။
+
+အရမ်းချစ်တယ် ကိုကို့သဲသဲလေး 💚</div>
+<audio controls autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+</div>
+<script>
+const photos=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg","photo8.jpg"];
+let i=0;
+setInterval(()=>{i=(i+1)%photos.length;document.getElementById('slide').src=photos[i];},2500);
+</script>
+</body></html>
